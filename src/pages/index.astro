@@ -1,17 +1,491 @@
 ---
 import '../styles/global.css';
+
+const whatsappUrl =
+	'https://api.whatsapp.com/send/?phone=5521996496146&text=Ol%C3%A1%21+Quero+meu+desconto+na+conta+de+luz+com+a+iGreen+Energy.+Pode+me+ajudar+a+fazer+o+cadastro%3F+Tamb%C3%A9m+quero+aproveitar+a+Green+Friday+e+receber+R%24+50+no+Pix+com+meu+cadastro+validado%2C+conforme+as+regras+e+condi%C3%A7%C3%B5es+da+campanha.&type=phone_number&app_absent=0';
+
+const faqs = [
+	{
+		question: 'Preciso instalar placas solares em casa?',
+		answer:
+			'Não. A energia é gerada em usinas parceiras e os créditos são destinados à sua unidade consumidora, conforme disponibilidade e regras do serviço.',
+	},
+	{
+		question: 'Como funciona a economia na conta de luz?',
+		answer:
+			'A energia compartilhada gera créditos que são aplicados na fatura da distribuidora. A economia depende da região, do consumo e das condições do contrato.',
+	},
+	{
+		question: 'Quem pode solicitar uma análise?',
+		answer:
+			'Residências e empresas podem consultar a disponibilidade. Um consultor confirma a área atendida e as condições para cada conta.',
+	},
+	{
+		question: 'A campanha de R$ 50 no Pix é garantida?',
+		answer:
+			'A participação depende do cadastro ser validado e do cumprimento das regras e condições da campanha, informadas no atendimento.',
+	},
+];
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta
+			name="description"
+			content="Pague até 20% menos na sua conta de luz com energia solar por assinatura 100% gratuita. Sem instalar nada ou pagar para entrar. Consulte disponibilidade e condições."
+		/>
+		<meta name="theme-color" content="#f5fbf6" />
+		<title>Pague até 20% menos na sua conta de luz | iGreen Energy</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<header class="sticky top-0 z-40 border-b border-border/70 bg-white/90 backdrop-blur">
+			<div class="mx-auto flex max-w-site items-center justify-between gap-5 px-[var(--container-padding)] py-4">
+				<a href="#inicio" class="inline-flex shrink-0 items-center" aria-label="iGreen Energy - início">
+					<img src="/image/igreen-logo-header.png" alt="iGreen Energy" width="189" height="60" class="h-auto w-[150px]" />
+				</a>
+
+				<nav aria-label="Navegação principal" class="hidden items-center gap-7 text-sm font-medium text-text-secondary lg:flex">
+					<a class="transition-colors hover:text-primary" href="#inicio">Início</a>
+					<a class="transition-colors hover:text-primary" href="#como-funciona">Como funciona</a>
+					<a class="transition-colors hover:text-primary" href="#economia">Economia</a>
+					<a class="transition-colors hover:text-primary" href="#beneficios">Benefícios</a>
+					<a class="transition-colors hover:text-primary" href="#duvidas">Dúvidas</a>
+				</nav>
+
+				<div class="flex items-center gap-3">
+					<a
+						href={whatsappUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hidden rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:inline-flex"
+					>
+						Quero meu desconto
+					</a>
+					<details class="relative lg:hidden">
+						<summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-border text-primary-dark" aria-label="Abrir menu">
+							<svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+							</svg>
+						</summary>
+						<nav aria-label="Navegação móvel" class="absolute right-0 top-14 grid min-w-56 gap-1 rounded-2xl border border-border bg-white p-3 shadow-lg">
+							<a class="rounded-xl px-4 py-3 text-sm hover:bg-surface" href="#inicio">Início</a>
+							<a class="rounded-xl px-4 py-3 text-sm hover:bg-surface" href="#como-funciona">Como funciona</a>
+							<a class="rounded-xl px-4 py-3 text-sm hover:bg-surface" href="#economia">Economia</a>
+							<a class="rounded-xl px-4 py-3 text-sm hover:bg-surface" href="#beneficios">Benefícios</a>
+							<a class="rounded-xl px-4 py-3 text-sm hover:bg-surface" href="#duvidas">Dúvidas</a>
+							<a class="mt-1 rounded-xl bg-primary px-4 py-3 text-center text-sm font-semibold text-white" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Quero meu desconto</a>
+						</nav>
+					</details>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-primary-light via-white to-white">
+				<div class="mx-auto grid max-w-site items-center gap-10 px-[var(--container-padding)] pb-16 pt-14 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+					<div class="relative z-10">
+						<p class="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-primary shadow-sm">
+							<svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8">
+								<circle cx="12" cy="12" r="4" />
+								<path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke-linecap="round" />
+							</svg>
+							ENERGIA SOLAR POR ASSINATURA · 100% GRATUITO
+						</p>
+						<h1 class="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-text sm:text-display">
+							Pague até<br />
+							<span class="text-primary">20%</span> menos<br />
+							na sua conta de luz
+						</h1>
+						<p class="mt-6 max-w-xl text-lg leading-relaxed text-text-secondary">
+							Sem instalar nada. Sem pagar nada para entrar.<br />
+							Consulte a disponibilidade e as condições para sua conta.
+						</p>
+						<div class="mt-8 flex flex-col gap-3 sm:flex-row">
+							<a
+								href={whatsappUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex min-h-16 items-center justify-center gap-2 rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+							>
+								Quero meu desconto
+							</a>
+							<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-border bg-white/70 px-8 py-4 text-lg font-semibold text-text transition hover:border-primary/40 hover:bg-primary-light">
+								<svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+									<path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-4Z" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								Falar com consultor
+							</a>
+						</div>
+						<ul class="mt-8 flex flex-col gap-3 text-base text-text-secondary sm:flex-row sm:flex-wrap sm:gap-x-6">
+							<li class="inline-flex items-center gap-2">
+								<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-white" aria-hidden="true">
+									<svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="m3.5 8 3 3 6-6" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+								Gratuito para aderir
+							</li>
+							<li class="inline-flex items-center gap-2">
+								<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-white" aria-hidden="true">
+									<svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="m3.5 8 3 3 6-6" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+								Sem instalação de placas
+							</li>
+							<li class="inline-flex items-center gap-2">
+								<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-white" aria-hidden="true">
+									<svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="m3.5 8 3 3 6-6" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+								Consulte as condições do contrato
+							</li>
+						</ul>
+						<div class="mt-8 border-t border-border pt-7">
+							<p class="text-xs font-bold uppercase tracking-[0.24em] text-text-secondary">Marco legal do setor</p>
+							<ul class="mt-5 flex flex-wrap gap-x-8 gap-y-3 text-base font-medium text-text-secondary">
+								<li>ANEEL · regulação do setor</li>
+								<li>Lei 14.300/2022 · geração distribuída</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="relative mx-auto w-full max-w-[34rem]">
+						<div class="absolute inset-8 rounded-full bg-accent/30 blur-3xl"></div>
+						<div class="relative overflow-hidden rounded-[2rem] border border-white bg-white/70 p-3 shadow-lg">
+							<img
+								src="/image/igreen-conexao-green.webp"
+								alt="Conexão Green: casa ligada a fontes de energia solar e eólica"
+								width="1920"
+								height="1080"
+								fetchpriority="high"
+								class="aspect-video h-auto w-full rounded-[1.5rem] object-cover"
+							/>
+							<div class="absolute bottom-7 left-7 flex items-center gap-3 rounded-2xl border border-white bg-white/95 px-4 py-3 shadow-md">
+								<span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-light text-lg text-primary" aria-hidden="true">↗</span>
+								<span><strong class="block text-sm text-primary-dark">Conexão Green</strong><span class="text-xs text-text-secondary">Energia renovável compartilhada</span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="green-friday" class="px-[var(--container-padding)] py-8">
+				<div class="mx-auto grid max-w-site items-center gap-8 overflow-hidden rounded-[2rem] bg-primary-dark p-7 text-white shadow-lg sm:p-10 lg:grid-cols-[1fr_16rem] lg:px-12">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.18em] text-accent">Green Friday · até 30/11/2026</p>
+						<h2 class="mt-3 text-2xl font-bold leading-tight sm:text-3xl">Cadastre sua conta e receba R$ 50 no Pix após validação</h2>
+						<p class="mt-3 max-w-2xl text-sm leading-relaxed text-white/75">
+							O benefício está sujeito à validação do cadastro e às regras e condições da campanha. Consulte os detalhes com um consultor.
+						</p>
+					</div>
+					<a
+						href={whatsappUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Fale no WhatsApp para participar da campanha Green Friday"
+						class="mx-auto block w-full max-w-64 overflow-hidden rounded-2xl ring-offset-2 transition hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-accent"
+					>
+						<img
+							src="/image/igreen-green-friday.webp"
+							alt="Green Friday iGreen: cadastre a conta de luz, receba R$ 50 no Pix após validação e consulte as regras no WhatsApp. Válida até 30 de novembro."
+							width="800"
+							height="1000"
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full"
+						/>
+					</a>
+				</div>
+			</section>
+
+			<section id="como-funciona" class="px-[var(--container-padding)] py-[var(--section-spacing)]">
+				<div class="mx-auto max-w-site">
+					<div class="mx-auto max-w-2xl text-center">
+						<p class="text-sm font-bold uppercase tracking-[0.16em] text-primary">Simples de começar</p>
+						<h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-primary-dark sm:text-4xl">Sua jornada para economizar em três passos</h2>
+						<p class="mt-4 leading-relaxed text-text-secondary">Um consultor ajuda você a entender a disponibilidade e as condições para sua unidade consumidora.</p>
+					</div>
+					<div class="mt-12 grid gap-5 md:grid-cols-3">
+						<article class="rounded-3xl border border-border bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+							<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-light text-lg font-bold text-primary">01</span>
+							<h3 class="mt-6 text-xl font-bold text-primary-dark">Converse com a gente</h3>
+							<p class="mt-3 leading-relaxed text-text-secondary">Informe sua região e tire dúvidas sobre a energia por assinatura.</p>
+						</article>
+						<article class="rounded-3xl border border-border bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+							<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-light text-lg font-bold text-primary">02</span>
+							<h3 class="mt-6 text-xl font-bold text-primary-dark">Confira as condições</h3>
+							<p class="mt-3 leading-relaxed text-text-secondary">A disponibilidade e a estimativa dependem da sua conta e da área atendida.</p>
+						</article>
+						<article class="rounded-3xl border border-border bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+							<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-light text-lg font-bold text-primary">03</span>
+							<h3 class="mt-6 text-xl font-bold text-primary-dark">Acompanhe seus créditos</h3>
+							<p class="mt-3 leading-relaxed text-text-secondary">Se elegível, você recebe as orientações para acompanhar os créditos na fatura.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="economia" class="bg-surface px-[var(--container-padding)] py-[var(--section-spacing)]">
+				<div class="mx-auto grid max-w-site items-center gap-12 lg:grid-cols-2">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.16em] text-primary">Economia sob medida</p>
+						<h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-primary-dark sm:text-4xl">Cada conta é diferente. A análise também.</h2>
+						<p class="mt-5 max-w-xl leading-relaxed text-text-secondary">
+							Região, distribuidora e perfil de consumo influenciam as condições disponíveis. Fale com um consultor para conferir sua conta e receber uma estimativa adequada ao seu caso.
+						</p>
+						<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+							Pedir uma análise <span aria-hidden="true">→</span>
+						</a>
+						<p class="mt-4 text-xs leading-relaxed text-text-secondary">Estimativas não representam garantia de economia. Consulte disponibilidade, contrato e condições aplicáveis.</p>
+					</div>
+					<div class="rounded-[2rem] border border-border bg-white p-6 shadow-sm sm:p-8">
+						<div class="flex items-start justify-between gap-4">
+							<div>
+								<p class="text-sm font-medium text-text-secondary">Uma solução conectada</p>
+								<h3 class="mt-1 text-xl font-bold text-primary-dark">Energia compartilhada</h3>
+							</div>
+							<span class="rounded-full bg-primary-light px-3 py-1 text-xs font-semibold text-primary-dark">Sem placas no telhado</span>
+						</div>
+						<div class="mt-8 space-y-4">
+							<div class="flex items-center gap-4 rounded-2xl bg-surface p-4">
+								<span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-xl text-primary" aria-hidden="true">☀</span>
+								<div class="min-w-0 flex-1"><p class="font-semibold text-primary-dark">Usina renovável</p><p class="mt-1 text-sm text-text-secondary">A energia é gerada em uma usina parceira.</p></div>
+								<span class="text-xl text-primary" aria-hidden="true">→</span>
+							</div>
+							<div class="ml-8 h-5 border-l-2 border-dashed border-primary/30"></div>
+							<div class="flex items-center gap-4 rounded-2xl bg-primary-light p-4">
+								<span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-xl text-primary" aria-hidden="true">⌂</span>
+								<div class="min-w-0 flex-1"><p class="font-semibold text-primary-dark">Sua unidade consumidora</p><p class="mt-1 text-sm text-text-secondary">Créditos podem ser aplicados conforme as regras do serviço.</p></div>
+								<span class="text-xl text-primary" aria-hidden="true">✓</span>
+							</div>
+						</div>
+						<p class="mt-5 text-xs leading-relaxed text-text-secondary">Representação ilustrativa. Consulte um consultor sobre a sua região e as condições da sua conta.</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="beneficios" class="px-[var(--container-padding)] py-[var(--section-spacing)]">
+				<div class="mx-auto max-w-site">
+					<div class="max-w-2xl">
+						<p class="text-sm font-bold uppercase tracking-[0.16em] text-primary">Mais leve em vários sentidos</p>
+						<h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-primary-dark sm:text-4xl">Energia inteligente para a sua rotina</h2>
+					</div>
+					<div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+						<article class="rounded-3xl bg-primary-light p-6">
+							<span class="text-2xl text-primary" aria-hidden="true">✳</span>
+							<h3 class="mt-5 text-lg font-bold text-primary-dark">Mais renovável</h3>
+							<p class="mt-2 text-sm leading-relaxed text-text-secondary">Apoie uma matriz energética com fontes renováveis.</p>
+						</article>
+						<article class="rounded-3xl border border-border p-6">
+							<span class="text-2xl text-primary" aria-hidden="true">⌂</span>
+							<h3 class="mt-5 text-lg font-bold text-primary-dark">Sem obra em casa</h3>
+							<p class="mt-2 text-sm leading-relaxed text-text-secondary">Não é necessário instalar placas solares no imóvel.</p>
+						</article>
+						<article class="rounded-3xl border border-border p-6">
+							<span class="text-2xl text-primary" aria-hidden="true">◎</span>
+							<h3 class="mt-5 text-lg font-bold text-primary-dark">Acompanhamento</h3>
+							<p class="mt-2 text-sm leading-relaxed text-text-secondary">Receba orientação para entender as etapas e sua fatura.</p>
+						</article>
+						<article class="rounded-3xl border border-border p-6">
+							<span class="text-2xl text-primary" aria-hidden="true">↗</span>
+							<h3 class="mt-5 text-lg font-bold text-primary-dark">Um clube de vantagens</h3>
+							<p class="mt-2 text-sm leading-relaxed text-text-secondary">Conheça outros benefícios disponíveis no ecossistema iGreen.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="igreen-club" class="bg-primary-dark px-[var(--container-padding)] py-16 text-white sm:py-20">
+				<div class="mx-auto grid max-w-site items-center gap-8 lg:grid-cols-[1fr_auto]">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.16em] text-accent">Indique e descubra</p>
+						<h2 class="mt-3 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl">Faça parte de uma comunidade que compartilha novas possibilidades.</h2>
+						<p class="mt-4 max-w-2xl leading-relaxed text-white/75">Converse com um consultor para conhecer o iGreen Club, os benefícios disponíveis e as formas de participação.</p>
+					</div>
+					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-bold text-primary-dark transition hover:bg-white">
+						Conhecer o iGreen Club <span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</section>
+
+			<section id="duvidas" class="px-[var(--container-padding)] py-[var(--section-spacing)]">
+				<div class="mx-auto grid max-w-site gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.16em] text-primary">Perguntas frequentes</p>
+						<h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-primary-dark sm:text-4xl">Ficou com alguma dúvida?</h2>
+						<p class="mt-4 leading-relaxed text-text-secondary">Se não encontrar a resposta, fale com um consultor. As condições podem variar conforme a região e o contrato.</p>
+						<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-hover">
+							Falar com um consultor <span aria-hidden="true">→</span>
+						</a>
+					</div>
+					<div class="space-y-3">
+						{faqs.map((faq) => (
+							<details class="group rounded-2xl border border-border bg-white px-5 py-4 open:shadow-sm">
+								<summary class="flex cursor-pointer list-none items-center justify-between gap-5 font-semibold text-primary-dark">
+									{faq.question}
+									<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-light text-lg text-primary transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+								</summary>
+								<p class="max-w-2xl pb-1 pt-4 text-sm leading-relaxed text-text-secondary">{faq.answer}</p>
+							</details>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="px-[var(--container-padding)] pb-[var(--section-spacing)]">
+				<div class="mx-auto flex max-w-site flex-col items-start justify-between gap-6 rounded-[2rem] bg-primary-light p-7 sm:p-10 lg:flex-row lg:items-center">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.16em] text-primary">O próximo passo é simples</p>
+						<h2 class="mt-2 text-2xl font-bold leading-tight text-primary-dark sm:text-3xl">Descubra se a energia por assinatura combina com você.</h2>
+						<p class="mt-3 text-sm leading-relaxed text-text-secondary">Consulte disponibilidade e condições com um consultor.</p>
+					</div>
+					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-primary-hover">
+						Chamar no WhatsApp <span aria-hidden="true">→</span>
+					</a>
+				</div>
+			</section>
+		</main>
+
+		<footer class="relative z-40 bg-footer px-5 text-footer-link sm:px-8 lg:px-[2.75%]">
+			<div class="grid grid-cols-1 gap-10 border-b border-footer-divider pb-10 pt-6 md:grid-cols-2 lg:grid-cols-[1.11fr_1.11fr_1fr] lg:gap-0 lg:pb-[42px]">
+				<div>
+					<a href="#inicio" class="inline-flex items-start" aria-label="iGreen — início">
+						<img
+							src="/image/igreen-logo-rodape.png"
+							alt="iGreen"
+							width="189"
+							height="60"
+							class="h-auto w-[156px]"
+						/>
+					</a>
+					<p class="mt-2 text-lg leading-7 text-footer-link">Energia limpa. Bolso cheio.</p>
+				</div>
+
+				<nav aria-label="Links rápidos">
+					<h2 class="text-[15px] font-semibold uppercase leading-5 text-footer-heading">Links rápidos</h2>
+					<ul class="mt-3 space-y-2.5">
+						<li><a class="text-lg leading-[25px] text-footer-link transition-colors hover:text-footer-accent" href="#como-funciona">Como funciona</a></li>
+						<li><a class="text-lg leading-[25px] text-footer-link transition-colors hover:text-footer-accent" href="#igreen-club">iGreen Club</a></li>
+						<li><a class="text-lg leading-[25px] text-footer-link transition-colors hover:text-footer-accent" href="#duvidas">FAQ</a></li>
+						<li><a class="text-lg leading-[25px] text-footer-link transition-colors hover:text-footer-accent" href="https://igreenclub.com/seja-licenciado">Seja Licenciado</a></li>
+						<li><a class="text-lg leading-[25px] text-footer-link transition-colors hover:text-footer-accent" href="#economia">Simular economia</a></li>
+					</ul>
+				</nav>
+
+				<div class="md:col-span-2 lg:col-span-1">
+					<h2 class="text-[15px] font-semibold uppercase leading-5 text-footer-heading">Redes sociais</h2>
+					<ul class="mt-3 flex gap-4">
+						<li>
+							<a
+								href="https://www.instagram.com/igreen.energy/"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Instagram iGreen Energy"
+								class="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-footer-social-border bg-footer-social text-footer-social-icon transition-colors hover:text-footer-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer-accent"
+							>
+								<svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8">
+									<rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+									<circle cx="12" cy="12" r="4" />
+									<circle cx="17.5" cy="6.8" r="1" fill="currentColor" stroke="none" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://www.youtube.com/c/IgreenEnergy/featured"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="YouTube iGreen Energy"
+								class="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-footer-social-border bg-footer-social text-footer-social-icon transition-colors hover:text-footer-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer-accent"
+							>
+								<svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8">
+									<rect x="3" y="5" width="18" height="14" rx="4" />
+									<path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://www.facebook.com/iGreen-Energy-107187055080301"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Facebook iGreen Energy"
+								class="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-footer-social-border bg-footer-social text-footer-social-icon transition-colors hover:text-footer-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer-accent"
+							>
+								<svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6" fill="currentColor">
+									<path d="M13.5 21v-7.4H16l.4-3h-2.9V8.7c0-.9.3-1.6 1.6-1.6h1.5V4.5c-.7-.1-1.6-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.7v1.7h-3v3h3V21h4.1Z" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a
+								href={whatsappUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="WhatsApp iGreen Energy"
+								class="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-footer-social-border bg-footer-social text-footer-social-icon transition-colors hover:text-footer-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer-accent"
+							>
+								<svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8">
+									<path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-4Z" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M8.8 8.2c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.8.6-.6-.1-1.4-.4-2.4-.9-1.3-.7-2.3-1.7-3-2.8-.7-1.1-.9-1.9-.9-2.5 0-.6.3-1.1.7-1.4Z" fill="currentColor" stroke="none" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-5 pb-5 pt-[30px] md:flex-row md:items-center md:justify-between">
+				<p class="text-[15px] leading-6 text-footer-heading">© 2025 iGreen Energy · CNPJ: 44.159.238/0001-30</p>
+				<ul class="flex flex-wrap gap-3">
+					<li>
+						<a
+							href="https://www.gov.br/pt-br/orgaos/agencia-nacional-de-energia-eletrica"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex rounded-full border border-footer-badge-border bg-footer-badge px-4 py-2 text-sm font-semibold leading-5 text-footer-badge-text transition-colors hover:border-footer-accent hover:text-footer-accent"
+						>
+							ANEEL
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex rounded-full border border-footer-badge-border bg-footer-badge px-4 py-2 text-sm font-semibold leading-5 text-footer-badge-text transition-colors hover:border-footer-accent hover:text-footer-accent"
+						>
+							Lei 14.300/2022
+						</a>
+					</li>
+					<li class="rounded-full border border-footer-badge-border bg-footer-badge px-4 py-2 text-sm font-semibold leading-5 text-footer-badge-text">Licenciado nº 185102</li>
+				</ul>
+			</div>
+
+			<p class="mx-auto max-w-[42rem] text-center text-sm leading-5 text-footer-legal">
+				A iGreen Energy é regulamentada pela Lei Federal 14.300/2022.<br />
+				O desconto varia por estado e distribuidora. Consulte as condições.<br /><br />
+				Este site é operado de forma independente por Consultor Licenciado autorizado. Ele não substitui a página corporativa oficial.
+			</p>
+		</footer>
+
+		<a
+			href={whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="fixed bottom-5 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition hover:scale-105 hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+			aria-label="Fale com a iGreen pelo WhatsApp"
+		>
+			<svg aria-hidden="true" viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8">
+				<path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M8.8 8.2c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.8.6-.6-.1-1.4-.4-2.4-.9-1.3-.7-2.3-1.7-3-2.8-.7-1.1-.9-1.9-.9-2.5 0-.6.3-1.1.7-1.4Z" fill="currentColor" stroke="none" />
+			</svg>
+		</a>
 	</body>
 </html>

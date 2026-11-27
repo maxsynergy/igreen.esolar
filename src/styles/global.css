@@ -17,6 +17,19 @@
   --color-error: #d94848;
   --color-info: #3685c8;
 
+  --color-footer: #0f1911;
+  --color-footer-heading: #575e59;
+  --color-footer-link: #878c88;
+  --color-footer-legal: #3f4741;
+  --color-footer-divider: #273029;
+  --color-footer-social: #0d2912;
+  --color-footer-social-border: #0b4813;
+  --color-footer-social-icon: #869489;
+  --color-footer-badge: #273029;
+  --color-footer-badge-border: #535a54;
+  --color-footer-badge-text: #7d837f;
+  --color-footer-accent: #01c801;
+
   --font-sans: "Inter", system-ui, sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;

@@ -53,6 +53,20 @@ Os valores abaixo formam uma paleta inicial estimada. Confirme os HEX com a inte
 | `color-text` | `#202A24` | Texto principal |
 | `color-text-secondary` | `#6B756E` | Texto auxiliar |
 | `color-border` | `#E3EAE5` | Bordas e divisórias |
+| `color-footer` | `#0F1911` | Fundo do rodapé na referência fornecida |
+| `color-footer-heading` | `#575E59` | Títulos de grupos e copyright |
+| `color-footer-link` | `#878C88` | Links do rodapé |
+| `color-footer-legal` | `#3F4741` | Texto legal complementar |
+| `color-footer-divider` | `#273029` | Divisor entre navegação e informações legais |
+| `color-footer-social` | `#0D2912` | Fundo dos botões sociais |
+| `color-footer-social-border` | `#0B4813` | Contorno dos botões sociais |
+| `color-footer-social-icon` | `#869489` | Ícones sociais |
+| `color-footer-badge` | `#273029` | Fundo dos selos institucionais |
+| `color-footer-badge-border` | `#535A54` | Contorno dos selos institucionais |
+| `color-footer-badge-text` | `#7D837F` | Texto dos selos institucionais |
+| `color-footer-accent` | `#01C801` | Hover e detalhes verdes do rodapé |
+
+Os tokens `color-footer-*` foram amostrados da imagem de referência fornecida para a composição do rodapé. Os demais valores da paleta continuam sendo estimativas iniciais.
 
 #### Intenção de uso
 
@@ -298,6 +312,20 @@ O bloco a seguir reúne os tokens iniciais estimados e pode ser utilizado como p
   --color-warning: #E6A23C;
   --color-error: #D94848;
   --color-info: #3685C8;
+
+  /* FOOTER — amostrado da imagem de referência */
+  --color-footer: #0F1911;
+  --color-footer-heading: #575E59;
+  --color-footer-link: #878C88;
+  --color-footer-legal: #3F4741;
+  --color-footer-divider: #273029;
+  --color-footer-social: #0D2912;
+  --color-footer-social-border: #0B4813;
+  --color-footer-social-icon: #869489;
+  --color-footer-badge: #273029;
+  --color-footer-badge-border: #535A54;
+  --color-footer-badge-text: #7D837F;
+  --color-footer-accent: #01C801;
 
   /* TYPOGRAPHY */
   --font-family-base: "Inter", system-ui, sans-serif;
